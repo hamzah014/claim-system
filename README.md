@@ -1,47 +1,93 @@
-Next Task
+# Claim System Project Setup Guide
 
-- add department for staff ✅
-- add involve driving data for staff - yes / no ✅
-- add assign manager for each department ✅
-- add calculation on ot and meal allowance ✅
-- add remarks on approve - not required ✅
-- create public holiday database - name, date ✅
+This guide explains how to install, run, and maintain the Laravel project locally and in production.
 
-- setup email
-  - email staff submit -> assign manager ✅
-  - email admin approve -> staff ✅
-  - email admin reject -> staff ✅
-  - email admin paid -> staff ✅
+---
 
+## Requirements
 
-- setup dashboard
-  - staff
-    - total submission, approval, ot month✅
-    - info how many days left can submit claim✅
-    - quick button to create claim✅
+* PHP 8.2
+* Git
+* Laravel CLI (optional)
 
-  - approver 
-   - total pending✅
-   - table list with approve reject button✅
-   - approval history by approver✅
-   - chart with total ot each department✅
+---
 
-  - hr admin
-   - table of claim with filtering and export function✅
+## 1. Clone the Project
 
+```bash
+git clone https://github.com/hamzah014/claim-system.git
+cd claim-system
+```
 
-- set setting for calculation✅
- - submiited days allowed
- - date of salary
- - working hour start - end time
- - standard rate ot
- - weekend rate ot
- - public holiday rate ot
- - first_ot_meal_hrs setting
- - first_ot_meal_time setting
- - extra_ot_meal_hrs setting
+---
 
+## 2. Install PHP Dependencies
 
-- set limiit on file upload - 5mb ✅
-- change the approver must be person who assigned based on department
-- put restriction on submit - 2months(from setting) from salary date ✅
+```bash
+composer install
+```
+
+---
+
+## 3. Environment Setup
+
+Copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+Generate an application key:
+
+```bash
+php artisan key:generate
+```
+
+Update `.env` with your database credentials:
+
+```
+DB_DATABASE=your_db
+DB_USERNAME=root
+DB_PASSWORD=secret
+```
+
+---
+
+## 4. Migrate & Seed Database (If Needed)
+
+```bash
+php artisan migrate
+php artisan db:seed   # optional
+```
+
+---
+
+## 5. Run the Local Development Server
+
+```bash
+php artisan serve
+```
+
+Visit the project at: `http://localhost:8000`
+
+---
+
+## 11. Project Structure
+
+```
+app/          # Application code
+bootstrap/    # Framework bootstrap files
+config/       # Configuration files
+database/     # Migrations and seeds
+public/       # Public web root
+resources/    # Views, CSS, JS
+routes/       # Routes
+storage/      # Logs, cache
+tests/        # Automated tests
+```
+
+---
+
+## License
+
+This project is licensed under your preferred license.
