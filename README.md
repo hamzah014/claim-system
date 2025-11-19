@@ -53,6 +53,21 @@ DB_PASSWORD=secret
 
 ---
 
+Update smtp with your own credential:
+
+```
+MAIL_MAILER=smtp
+MAIL_SCHEME=null
+MAIL_HOST=smtp-relay.brevo.com
+MAIL_PORT=587
+MAIL_USERNAME=secret@smtp-brevo.com
+MAIL_PASSWORD=secret
+MAIL_FROM_ADDRESS="secret@gmail.com"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+---
+
 ## 4. Migrate & Seed Database (If Needed)
 
 ```bash
