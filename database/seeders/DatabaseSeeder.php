@@ -17,8 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminFirstLogin::class,
-            DepartmentSeeder::class,
             SystemSettingSeeder::class,
+            AssignAdmin::class,
+            DepartmentSeeder::class,
         ]);
     }
 }
